@@ -1,13 +1,13 @@
 apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: keycloak-properies
+  annotations:
+    sealedsecrets.bitnami.com/managed: "true"
+    sealedsecrets.bitnami.com/namespace-wide: "true"
 data:
   KC_DB: postgres
   KC_DB_URL_DATABASE: postgres
   KC_DB_URL_HOST: postgres-postgresql.svc.cluster.local
   KC_DB_URL_PORT: "5432"
   KC_HOSTNAME: localhost:8080
-kind: ConfigMap
-metadata:
-  annotations:
-    sealedsecrets.bitnami.com/managed: "true"
-    sealedsecrets.bitnami.com/namespace-wide: "true"
-  name: keycloak-properies

@@ -4,9 +4,9 @@ metadata:
   name: data
 spec:
   accessModes:
-    - ReadWriteOnce
+  - ReadWriteOnce
   capacity:
     storage: 2Gi
-  storageClassName: standard
   hostPath:
     path: /data/pv0001/
+  storageClassName: standard

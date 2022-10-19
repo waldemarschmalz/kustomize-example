@@ -4,12 +4,12 @@ metadata:
   name: keycloak-headless
 spec:
   type: ClusterIP
-  clusterIP: None
-  ports:
-    - name: http
-      port: 80
-      targetPort: http
-      protocol: TCP
   selector:
-    app.kubernetes.io/name: keycloakx
     app.kubernetes.io/instance: keycloak-x
+    app.kubernetes.io/name: keycloakx
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: http
+  clusterIP: None

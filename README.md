@@ -19,4 +19,8 @@ kubectl apply -k keycloak/overlays/dev/
 
 - credential management
 - use kustomize patching
-- ...
+- disable name suffix hash?
+  - ```
+    generatorOptions:
+      disableNameSuffixHash: true
+    ```

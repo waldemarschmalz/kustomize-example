@@ -2,15 +2,13 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
   name: keycloak
-
-commonLabels:
-  app.kubernetes.io/name: keycloakx
-  app.kubernetes.io/instance: keycloak-x
-  app.kubernetes.io/version: "19.0.3"
-  app.kubernetes.io/component: headless
-
 resources:
-  - statefulset.yaml
-  - service-headless.yaml
-  - service-http.yaml
-  - serviceaccount.yaml
+- statefulset.yaml
+- service-headless.yaml
+- service-http.yaml
+- serviceaccount.yaml
+commonLabels:
+  app.kubernetes.io/component: headless
+  app.kubernetes.io/instance: keycloak-x
+  app.kubernetes.io/name: keycloakx
+  app.kubernetes.io/version: "19.0.3"
