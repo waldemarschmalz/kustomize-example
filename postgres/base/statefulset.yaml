@@ -2,7 +2,8 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: postgres-postgresql
-  namespace: "default"
+  labels:
+    app: postgres-postgresql
 spec:
   replicas: 1
   selector:
@@ -116,8 +117,6 @@ spec:
                   app.kubernetes.io/component: primary
                   app.kubernetes.io/instance: postgres
                   app.kubernetes.io/name: postgresql
-              namespaces:
-              - "default"
               topologyKey: kubernetes.io/hostname
             weight: 1
       securityContext:

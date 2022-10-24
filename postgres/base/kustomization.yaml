@@ -6,6 +6,7 @@ resources:
 - statefulset.yaml
 - service-hl.yaml
 - service.yaml
+- persistent-volume.yaml
 commonLabels:
   app.kubernetes.io/component: primary
   app.kubernetes.io/instance: postgres

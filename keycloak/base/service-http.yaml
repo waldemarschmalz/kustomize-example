@@ -5,8 +5,8 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app.kubernetes.io/instance: keycloak-x
-    app.kubernetes.io/name: keycloakx
+    app.kubernetes.io/instance: keycloak
+    app.kubernetes.io/name: keycloak
   ports:
   - name: http
     protocol: TCP

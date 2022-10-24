@@ -1,26 +1,19 @@
+namespace: prod
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+replicas:
+- name: keycloak
+  count: 3
+resources:
+- namespace.yaml
 bases:
 - ../../base
 configMapGenerator:
 - name: keycloak-properies
   envs:
   - .env
-configurations:
-- configuration/sealed-secret-config.yaml
-generatorOptions:
-  annotations:
-    sealedsecrets.bitnami.com/managed: "true"
-    sealedsecrets.bitnami.com/namespace-wide: "true"
 patches:
-- patch: |-
-    - op: add
-      path: "/spec/template/spec/containers/0/envFrom"
-      value:
-      - configMapRef:
-          name: keycloak-properies
-      - secretRef:
-          name: keycloak-secrets
+- path: env-patch.yaml
   target:
     name: keycloak
     kind: StatefulSet

@@ -6,13 +6,13 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app.kubernetes.io/instance: keycloak-x
-      app.kubernetes.io/name: keycloakx
+      app.kubernetes.io/instance: keycloak
+      app.kubernetes.io/name: keycloak
   template:
     metadata:
       labels:
-        app.kubernetes.io/instance: keycloak-x
-        app.kubernetes.io/name: keycloakx
+        app.kubernetes.io/instance: keycloak
+        app.kubernetes.io/name: keycloak
     spec:
       restartPolicy: Always
       terminationGracePeriodSeconds: 60
@@ -92,8 +92,8 @@ spec:
                   values:
                   - test
                 matchLabels:
-                  app.kubernetes.io/instance: keycloak-x
-                  app.kubernetes.io/name: keycloakx
+                  app.kubernetes.io/instance: keycloak
+                  app.kubernetes.io/name: keycloak
               topologyKey: topology.kubernetes.io/zone
             weight: 100
           requiredDuringSchedulingIgnoredDuringExecution:
@@ -104,8 +104,8 @@ spec:
                 values:
                 - test
               matchLabels:
-                app.kubernetes.io/instance: keycloak-x
-                app.kubernetes.io/name: keycloakx
+                app.kubernetes.io/instance: keycloak
+                app.kubernetes.io/name: keycloak
             topologyKey: kubernetes.io/hostname
       securityContext:
         fsGroup: 1000
