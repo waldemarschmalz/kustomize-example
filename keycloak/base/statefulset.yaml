@@ -2,6 +2,9 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: keycloak
+  labels:
+    app.kubernetes.io/instance: keycloak
+    app.kubernetes.io/name: keycloak
 spec:
   replicas: 2
   selector:
@@ -53,7 +56,7 @@ spec:
         - name: JAVA_OPTS_APPEND
           value: -Djgroups.dns.query=keycloak-headless
         - name: JAVA_TOOL_OPTIONS
-          value: -XX:+UseContainerSupport -XX:MaxRAMPercentage=50.0
+          value: -XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0
         resources: {}
         volumeMounts:
         livenessProbe:
