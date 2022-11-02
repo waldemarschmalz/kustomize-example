@@ -12,6 +12,7 @@
 .idea/**/dictionaries
 .idea/**/shelf
 .idea/
+kustomize.iml
 
 # AWS User-specific
 .idea/**/aws.xml
