@@ -18,10 +18,27 @@ Deploy Prometheus and Grafana:
 ```bash
 kubectl apply -k monitoring/base/
 ```
+#
+Workaround when using persistent volumes mounted as `hostpath`:
+The non-standard user UID: 65534 can't access it out of the box. 
+So, "initContainers" will provide the user UID:65534 the required permission on the volume (volumeMounts).
+
+
+_prometheus-deployment.yaml_:
+```
+initContainers:
+- name: prometheus-data-permission-setup
+  image: busybox
+  command: [ "/bin/chmod","-R","777", "/data" ]
+  volumeMounts:
+    - name: prometheus-volume
+      mountPath: /data
+```
+
 ###
 
 ### TODOs
 
 - credential management
-- Monitoring:
-  - Import Dashboard via k8s
+- monitoring:
+  - import Grafana dashboard in deployment
