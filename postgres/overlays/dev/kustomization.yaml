@@ -2,9 +2,9 @@ namespace: dev
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- namespace.yaml
-bases:
 - ../../base
+- namespace.yaml
+
 secretGenerator:
 - name: postgres-secrets
   envs:

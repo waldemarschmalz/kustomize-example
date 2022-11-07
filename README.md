@@ -13,14 +13,15 @@ Deploy Keycloak statefulset with two instances:
 ```bash
 kubectl apply -k keycloak/overlays/dev/
 ```
+
+Deploy Prometheus and Grafana:
+```bash
+kubectl apply -k monitoring/base/
+```
 ###
 
 ### TODOs
 
 - credential management
-- use kustomize patching
-- disable name suffix hash?
-  - ```
-    generatorOptions:
-      disableNameSuffixHash: true
-    ```
+- Monitoring:
+  - Import Dashboard via k8s

@@ -5,9 +5,8 @@ replicas:
 - name: keycloak
   count: 2
 resources:
-- namespace.yaml
-bases:
 - ../../base
+- namespace.yaml
 configMapGenerator:
 - name: keycloak-properies
   envs:

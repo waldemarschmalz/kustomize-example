@@ -71,9 +71,9 @@ spec:
             memory: 256Mi
         volumeMounts:
         - name: dshm
-          mountPath: /data/pv0001/dev/shm
-        - name: data
-          mountPath: /data/pv0001/bitnami/postgresql
+          mountPath: /dev/shm
+        - name: postgres-volume
+          mountPath: /bitnami/postgresql
         livenessProbe:
           exec:
             command:
@@ -123,7 +123,7 @@ spec:
         fsGroup: 1001
   volumeClaimTemplates:
   - metadata:
-      name: data
+      name: postgres-volume
     spec:
       resources:
         requests:
