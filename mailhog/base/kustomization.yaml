@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: mailhog
+resources:
+- deployment.yaml
+- service.yaml
+- serviceaccount.yaml
+commonLabels:
+  app.kubernetes.io/component: primary
+  app.kubernetes.io/instance: mailhog
+  app.kubernetes.io/name: mailhog
